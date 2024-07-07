@@ -1,5 +1,4 @@
-// import { auth } from '@/lib/auth'
-// import { NextRequest } from 'next/server'
+import { auth } from './lib/auth'
 
 // export { auth as middleware } from '@/lib/auth'
 
@@ -12,11 +11,11 @@
 // })
 
 export async function middleware() {
-  // const session = await auth()
+  const session = await auth()
   // if (!session) {
   //   return Response.json({}, { status: 401 })
   // }
-  // console.log(session)
+  console.log(session)
   console.log('aqui 2')
 }
 
