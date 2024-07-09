@@ -13,11 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum UserType {
-  MEMBER
-  COACH
-}
-
 //coach
 model User {
   id            String          @id @default(cuid())
@@ -96,16 +91,19 @@ model Authenticator {
 }
 
 model Member {
-  id            String          @id @default(cuid())
-  coach         User            @relation(fields: [userId], references: [id])
+  id      String @id @default(cuid())
+  coach   User   @relation(fields: [coachId], references: [id])
+  coachId String
+
   name          String
   email         String?
-  Document      String?
-  height        String?
-  weight        String?
-  userId        String
+  document      String?         @unique()
+  height        Float?
+  weight        Float?
   Training      Training[]
   MemberHistory MemberHistory[]
+
+  @@index([name, coachId])
 }
 
 model MemberHistory {

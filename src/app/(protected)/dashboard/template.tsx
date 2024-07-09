@@ -17,6 +17,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         opacity: 1,
         filter: 'blur(0px)'
       }}
+      className='h-full'
     >
       {children}
     </motion.div>

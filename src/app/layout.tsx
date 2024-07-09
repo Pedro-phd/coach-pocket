@@ -1,8 +1,11 @@
-/* eslint-disable @next/next/no-sync-scripts */
+import './globals.css'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+
+import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import QueryProvider from '@/lib/query-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <TooltipProvider>
-        <body className={inter.className}>{children}</body>
-      </TooltipProvider>
+      <QueryProvider>
+        <TooltipProvider>
+          <body className={inter.className}>{children}</body>
+          <Toaster />
+        </TooltipProvider>
+      </QueryProvider>
     </html>
   )
 }
