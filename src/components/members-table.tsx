@@ -30,7 +30,7 @@ export default function MembersTable({ data, loading = false }: Props) {
         <TableRow>
           <TableHead>Nome</TableHead>
           <TableHead>Email</TableHead>
-          <TableHead>Documento</TableHead>
+          <TableHead className="hidden md:flex">Documento</TableHead>
           <TableHead></TableHead>
         </TableRow>
       </TableHeader>
@@ -40,7 +40,7 @@ export default function MembersTable({ data, loading = false }: Props) {
             <TableRow key={m.id}>
               <TableCell className="capitalize">{m.name}</TableCell>
               <TableCell>{m.email}</TableCell>
-              <TableCell>{m.document}</TableCell>
+              <TableCell className="hidden md:flex">{m.document}</TableCell>
               <TableCell>
                 <Tooltip>
                   <TooltipTrigger onClick={() => redirect(m.id)}>
